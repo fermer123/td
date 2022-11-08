@@ -33,7 +33,9 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
         </Card.Title>
         <div className='mt-auto'>
           {quantity === 0 ? (
-            <Button className='w-100'>Add</Button>
+            <Button className='w-100' onClick={() => increaseItemQuantity(id)}>
+              Add
+            </Button>
           ) : (
             <div
               className='d-flex align-items-center flex-column'
@@ -43,13 +45,15 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                 className='d-flex align-items=cemter justify-content-center'
                 style={{ gap: '30px' }}
               >
-                <Button>-</Button>
+                <Button onClick={() => decreaseItemQuantity(id)}>-</Button>
                 <div>
                   <span className='fs-3'>{quantity} in cart</span>
                 </div>
-                <Button>+</Button>
+                <Button onClick={() => increaseItemQuantity(id)}>+</Button>
               </div>
-              <Button variant='danger'>Remove</Button>
+              <Button variant='danger' onClick={() => removeItem(id)}>
+                Remove
+              </Button>
             </div>
           )}
         </div>
