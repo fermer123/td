@@ -38,9 +38,7 @@ export const ShoppingCartProvider = ({
       }
     });
   };
-  const decreaseItemQuantity = (id: number) => {};
-
-  const removeItem = (id: number) => {
+  const decreaseItemQuantity = (id: number) => {
     setCartItems((e) => {
       if (e.find((item) => item.id === id)?.quantity === 1) {
         return e.filter((item) => item.id !== id);
@@ -53,6 +51,12 @@ export const ShoppingCartProvider = ({
           }
         });
       }
+    });
+  };
+
+  const removeItem = (id: number) => {
+    setCartItems((e) => {
+      return e.filter((item) => item.id !== id);
     });
   };
   return (
